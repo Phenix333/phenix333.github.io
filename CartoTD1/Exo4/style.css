@@ -1,0 +1,25 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#top {
+  margin-top: 60px;
+  flex: 1;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  box-shadow: 0 0 10px 0;
+}

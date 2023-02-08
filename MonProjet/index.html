@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- Fait le 05/02/2023 par Colin de Seroux LP DAM département Nice Sophia Antipolis, phenix333.dev@gmail.com -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.117.0/build/three.min.js"></script>
+    <title>Projet</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/STLLoader.js"></script>
+
+    <nav
+      id="navigationBar"
+      class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Nouveau trajet</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="top" class="container-fluid">
+      <div id="map"></div>
+      <button
+        id="route"
+        type="button"
+        class="btn btn-primary"
+        onclick="routeOk()"
+      >
+        Valider le trajet
+      </button>
+      <button
+        id="parking"
+        type="button"
+        class="btn btn-success"
+        onclick="parkingOk()"
+      >
+        Je suis arrivé au parking
+      </button>
+      <button id="info" type="button" class="btn btn-info" onclick="info()">
+        Infos
+      </button>
+      <button
+        id="walk"
+        type="button"
+        class="btn btn-success"
+        onclick="walkOk()"
+      >
+        Je suis arrivé à destination
+      </button>
+      <div id="speed" class="text-nowrap">Vitesse : 0 km/h</div>
+      <div id="container"></div>
+      <div id="popup">
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          onclick="closePopup()"
+        ></button>
+        <div id="title"></div>
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img id="firstImage" src="" class="d-block w-100" alt="firstImage" />
+            </div>
+            <div class="carousel-item">
+              <img id="secondImage" src="" class="d-block w-100" alt="secondImage" />
+            </div>
+            <div class="carousel-item">
+              <img id="firdImage" src="" class="d-block w-100" alt="firdImage" />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2023 Copyright :
+        <a class="text-reset fw-bold" href="https://colin-de-seroux.github.io/"
+          >Colin de Seroux</a
+        >, LP DAM, phenix333.dev@gmail.com
+      </div>
+    </footer>
+
+    <script lang="js" src="./script.js"></script>
+  </body>
+</html>
